@@ -1,17 +1,37 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { reactive } from 'vue';
+
+const state = reactive({
+    isMenuOpen: false,
+});
+
+const toggleMenu = () => {
+    state.isMenuOpen = !state.isMenuOpen;
+    console.log(state.isMenuOpen);
+};
 </script>
 <template>
-    <nav class="flex items-center justify-between py-6 px-20 border-b border-gray-300 shadow-lg">
+    <nav class="flex items-center justify-between py-6 px-6 sm:px-10 lg:px-20 border-b border-gray-300 shadow-lg">
         <div class="flex gap-x-4 text-sm uppercase font-bold items-center">
             <RouterLink to="/" class="">
                  <img src="/logo/logo.png" class="h-12 w-12" alt="logo">
             </RouterLink>
-            <RouterLink to="/menu" class="hover:text-green-800 ease-in-out duration-300">Menu</RouterLink>
+            <div class="hidden gap-x-4 sm:flex">
+                    <RouterLink to="/menu" class="hover:text-green-800 ease-in-out duration-300">Menu</RouterLink>
             <RouterLink to="/merchandise" class="hover:text-green-800 ease-in-out duration-300">Merchandise</RouterLink>
             <RouterLink to="/about" class="hover:text-green-800 ease-in-out duration-300">About us</RouterLink>
+            </div>
         </div>
-        <div class="flex gap-x-4 items-center lg:flex-row font-bold md:flex-col">
+        <div class="block md:hidden hover:bg-green-800 ease-in-out duration-300 rounded-full p-2 cursor-pointer">
+            <button v-if="state.isMenuOpen === false" class="text-2xl focus:bg-gray-100 px-2 py-1 rounded-full" @click="toggleMenu">
+                <i class="pi pi-bars"></i>
+            </button>
+            <button v-if="state.isMenuOpen === true" class="text-2xl focus:bg-gray-100 px-2 py-1 rounded-full" @click="toggleMenu">
+                <i class="pi pi-times"></i>
+            </button>
+        </div>
+        <div class="flex gap-x-4 items-center hidden lg:flex-row font-bold md:flex-col sm:flex">
             <div class="hover:text-green-800 ease-in-out duration-300 cursor-pointer flex gap-x-1 items-center">
                 <i class="pi pi-map-marker"></i>
                 <label>Find a Store</label>
@@ -21,5 +41,8 @@ import { RouterLink } from 'vue-router'
                 <button class="border border-1 py-1 px-4 rounded-full bg-black text-white hover:bg-black/75 cursor-pointer">Chat us</button>
             </div>
         </div>
+    </nav>
+    <nav class="block md:hidden">
+
     </nav>
 </template>
