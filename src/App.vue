@@ -1,15 +1,34 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue';
+import MiniNavbar from './components/MiniNavbar.vue';
+import { reactive, watch } from 'vue';
+
+const state = reactive({
+  isMenuOpen: false
+});
+
+const handleToggleMenu = (isMenuOpen) => {
+  state.isMenuOpen = isMenuOpen;
+};
+
+watch(() => state.isMenuOpen, (newValue) => {
+  state.isMenuOpen = newValue;
+});
+
 </script>
 
 <template>
-  <header>
-    <Navbar/>
-  </header>
+  <div>
+    <header>
+      <Navbar :isOpen="state.isMenuOpen" @toggle-menu="handleToggleMenu" />
+      <MiniNavbar :isOpen="state.isMenuOpen" @toggle-menu="handleToggleMenu" />
+    </header>
 
-  <RouterView />
+    <main class="py-24">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
