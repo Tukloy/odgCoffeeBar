@@ -5,6 +5,6 @@ import Hero from '@/components/Hero.vue'
 <template>
   <main>
     <Hero />
- <h1>this is the home view</h1>
+    <h1>this is the home view</h1>
   </main>
 </template>

@@ -1,7 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import Navbar from './components/Navbar.vue';
-import MiniNavbar from './components/MiniNavbar.vue';
+import Navbar from '@/components/Navbar.vue';
+import MiniNavbar from '@/components/MiniNavbar.vue';
 import { reactive, watch } from 'vue';
 
 const state = reactive({

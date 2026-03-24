@@ -31,12 +31,12 @@ const toggleMenu = () => {
                 <i :class="props.isOpen ? 'pi pi-times' : 'pi pi-bars'"></i>
             </button>
         </div>
-        <div class="flex gap-x-4 items-center hidden lg:flex-row font-bold md:flex-col sm:flex">
+        <div class="flex gap-x-10 items-center hidden lg:flex-row font-bold md:flex-col sm:flex">
             <div class="hover:text-green-800 ease-in-out duration-300 cursor-pointer flex gap-x-1 items-center">
                 <i class="pi pi-map-marker"></i>
                 <label>Find a Store</label>
             </div>
-            <div class="flex gap-x-2">
+            <div class="flex gap-x-4">
                 <button class="border border-1 py-1 px-4 rounded-full hover:bg-gray-200/75 cursor-pointer">Cart</button>
                 <button
                     class="border border-1 py-1 px-4 rounded-full bg-black text-white hover:bg-black/75 cursor-pointer">Chat
