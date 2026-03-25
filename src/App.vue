@@ -25,7 +25,7 @@ watch(() => state.isMenuOpen, (newValue) => {
       <MiniNavbar :isOpen="state.isMenuOpen" @toggle-menu="handleToggleMenu" />
     </header>
 
-    <main class="py-24">
+    <main class="py-22 sm:py-22 md:py-22 lg:py-24 xl:py-24 2xl:py-24">
       <RouterView />
     </main>
   </div>
